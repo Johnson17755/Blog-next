@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+    Backend 
+we are making use of axios: npm install axios, 
+npm i react-toastify: display error messages for users,
+npm i mongoose: database,
+        SETTING DATABASE.NODE_
