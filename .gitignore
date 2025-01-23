@@ -41,7 +41,35 @@ yarn-error.log*
 next-env.d.ts
 
     Backend 
-we are making use of axios: npm install axios, 
+we are making use of axios: npm install axios, for network request.
 npm i react-toastify: display error messages for users,
-npm i mongoose: database,
-        SETTING DATABASE.NODE_
+npm i mongoose: connect to mongodb database, 
+        SETTING DATABASE.NODE
+1) go to web browser mongodb 
+how to create account database. clicked on Build database or create, click M0 free, goto adavance configuration, free select,
+click on google cloude. nearest region, create cluster, click on connect, compass.
+
+ create a folder in the root directory called LIB. with the lib create a folder called MOdels and CONFIG.
+1) create a folder called MODELS. that is where you create your schema and model.
+2) create a folder called CONFIG. that is where you connect to database.
+
+In the app directory create a folder called API, that is where we create crude, create, delete, update,
+1)with the API folder you create a blog folder and email folder.
+// create api to manage DataTransfer.
+  route.
+import { ConnectDB } from "@/lib/config/db";
+
+const { NextResponse } = require("next/server");
+
+
+const LOadDB = async () => {
+  await ConnectDB();
+}
+
+LOadDB();
+
+export async function GET(request) {
+  // console.log("Blog Get Hit");
+  return NextResponse.json({ msg: "API working" });
+}
+
