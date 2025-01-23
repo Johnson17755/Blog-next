@@ -4,8 +4,6 @@ import { ConnectDB } from "@/lib/config/db";
 import BlogModel from "@/lib/models/BlogModels";
 import { writeFile } from "fs/promises";
 const { NextResponse } = require("next/server");
-import path from "path";
-import { title } from "process";
 
 //  store data in the database
 const LOadDB = async () => {
