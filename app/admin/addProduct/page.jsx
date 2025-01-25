@@ -29,7 +29,6 @@ const page = () => {
 
     // Create a new FormData object
     const formData = new FormData();
-
     // Append data to the FormData object
     formData.append("title", data.title);
     formData.append("description", data.description);
@@ -37,14 +36,20 @@ const page = () => {
     formData.append("author", data.author);
     formData.append("authorImg", data.authorImg);
     formData.append("image", image);
-
     try {
       // Send the data to the server using axios
       const response = await axios.post("/api/blog", formData);
-
       // Handle success and error responses
       if (response.data.success) {
-        toast.success(response.data.message); // Fixed typo in "message"
+        toast.success(response.data.msg); // Fixed typo in "message"
+        setImage(false); //to clear all existing data.
+        setData({
+          title: "",
+          description: "",
+          category: "Startup",
+          author: "Alex",
+          authorImg: "/author_img.png",
+        });
       } else {
         toast.error("Error occurred while creating the blog");
       }
@@ -52,7 +57,6 @@ const page = () => {
       console.error("API Error:", error);
       toast.error("Failed to submit the blog post");
     }
-
     // Optional: Log the data being sent for debugging
     console.log(data);
   };
