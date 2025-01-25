@@ -1,5 +1,4 @@
 // create api to manage DataTransfer.
-
 import { ConnectDB } from "@/lib/config/db";
 import BlogModel from "@/lib/models/BlogModels";
 import { writeFile } from "fs/promises";
@@ -28,7 +27,7 @@ export async function POST(request) {
   const path = `./public/${timestap}_${image.name}`;
   await writeFile(path, buffer); //store in public folder
   const imgUrl = `./public/${timestap}_${image.name}`;
-  // console.log(imgUrl);
+  console.log(imgUrl);
 
   const blogData = {
     title: `${formData.get("title")}`,
