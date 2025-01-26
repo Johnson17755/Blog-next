@@ -11,12 +11,13 @@ const LOadDB = async () => {
 
 LOadDB();
 
+// apiend point to get all blogs
 export async function GET(request) {
-  // console.log("Blog Get Hit");
-  return NextResponse.json({ msg: "API working" });
+  const blogs = await BlogModel.find({}); //find all the blogs and store in the variable
+  return NextResponse.json({ blogs }); //get all the blogs post
 }
 
-// api for storing the blog data
+// apiend point for uploading/storing data blogs
 export async function POST(request) {
   const formData = await request.formData(); //get the blog data
   const timestap = Date.now(); //get the current date and time
